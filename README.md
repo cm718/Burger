@@ -1,7 +1,7 @@
 # Burger
 
 A burger preferences application for practice with MySQL, Node, Express, Handlebars, and Heroku.
-Find the deployed Heroku website here: 
+Find the deployed Heroku website here: https://dashboard.heroku.com/apps/infinite-sands-96333
 
 ## The Dependencies
 If you'd like to use this app or make one like it, first you will need to install your dependencies
