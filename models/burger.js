@@ -1,9 +1,27 @@
-
 // Require in the ORM
 const orm = require('../config/orm');
 
 // Use the functions created in ORM
-const burger = {};
+const burger = {
+    selectAll: function (cb) {
+        orm.selectAll("burgers", function (res) {
+            cb(res);
+        });
+    },
+    insertOne: function(name, cb) {
+        orm.insertOne("burgers", [
+          "burger_name", "devoured"
+        ], [
+          name, false
+        ], cb);
+      },
+      updateOne: function(id, cb) {
+        var condition = "id= " + id;
+        orm.updateOne("burgers", {
+          devoured: true
+        }, condition, cb);
+      }
+};
 
 // Export the functions that were created in ORM
 module.exports = burger;
