@@ -6,7 +6,7 @@ const router = express.Router();
 
 // Create the routes
 router.get("/", (req, res) => {
-  burger.all(function (burgerData) {
+  burger.selectAll(function (burgerData) {
     res.render("index", {
       burger_data: burgerData
     });
@@ -14,7 +14,7 @@ router.get("/", (req, res) => {
 });
 
 router.get("/", (req, res) => {
-  burger.all(function (burgerData) {
+  burger.selectAll(function (burgerData) {
     res.render("index", {
       burger_data: burgerData
     });
@@ -22,7 +22,7 @@ router.get("/", (req, res) => {
 });
 
 router.post("/burgers/create", function (req, res) {
-  burger.create(
+  burger.insertOne(
     req.body.burger_name,
     function (result) {
       console.log(result);
@@ -32,7 +32,7 @@ router.post("/burgers/create", function (req, res) {
 });
 
 router.put("/burgers/:id", function (req, res) {
-  burger.update(
+  burger.updateOne(
     req.params.id,
     function (result) {
       console.log(result)
