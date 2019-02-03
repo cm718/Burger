@@ -1,10 +1,7 @@
-import {
-    get
-} from "http";
 
 $(document).ready(function () {
 
-    $("#create").on("submit", function (event) {
+    $("#create").on("click", function (event) {
         event.preventDefault();
 
         let newBurger = {
