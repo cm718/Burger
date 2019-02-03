@@ -13,22 +13,13 @@ router.get("/", (req, res) => {
   });
 });
 
-router.get("/", (req, res) => {
-  burger.selectAll(function (burgerData) {
-    res.render("index", {
-      burger_data: burgerData
-    });
-  });
-});
-
-router.post("/burgers/create", function (req, res) {
-  burger.insertOne(
-    req.body.burger_name,
-    function (result) {
-      console.log(result);
-      // Send back the ID of the new quote
-      res.redirect("/");
-    });
+router.post("/api/burgers", function (req, res) {
+  const cb = function (result) {
+    console.log(`result from controller ${result}`);
+    // Send back the ID of the new quote
+    res.redirect("/");
+  };
+  burger.insertOne(req.body.burger_name, cb);
 });
 
 router.put("/burgers/:id", function (req, res) {
