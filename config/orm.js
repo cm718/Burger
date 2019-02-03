@@ -2,6 +2,8 @@
 // Import (require) connection.js into orm.js
 const connection = require('../config/connection');
 
+
+
 // create the methods that will execute the necessary MySQL commands in the controller
 const orm = {
     // Method to receive all the burgers in the table
@@ -16,12 +18,14 @@ const orm = {
     },
 
     // Method to add a new burger to the table
-    insertOne: function(burger_name, cb){
-        const query = `INSERT INTO burgers VALUES(${burger_name})`;
+    insertOne: function(burger_name, devoured, cb){
+        const query = `INSERT INTO burgers (burger_name, devoured) VALUES('${burger_name}', ${devoured})`;
+        console.log(query);
         connection.query(query, function(err, result){
             if(err) {
                 throw err;
             }
+            console.log(result);
             cb(result);
         });
     },
