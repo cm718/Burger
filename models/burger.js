@@ -9,11 +9,7 @@ const burger = {
         });
     },
     insertOne: function(name, cb) {
-        orm.insertOne("burgers", [
-          "burger_name", "devoured"
-        ], [
-          name, false
-        ], cb);
+        orm.insertOne(name, 0, cb);
       },
       updateOne: function(id, cb) {
         var condition = "id= " + id;
